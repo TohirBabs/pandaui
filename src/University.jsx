@@ -20,7 +20,7 @@ const University = () => {
             <a href="/">research</a>
             <a href="/">resources</a>
             <a href="/">alumni</a>
-            <a href="/">about</a>
+            <a href="/">abou</a>
           </div>
         </div>
         <div className="bg-[#620000]  rounded-2xl  absolute bottom-0 max-w-[36%] text-left p-4">
