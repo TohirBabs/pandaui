@@ -1,8 +1,8 @@
 function App() {
   return (
-    <div className=" p-10">
+    <div className=" p-20">
       <div className=" bg-[#000] rounded-3xl relative p-2 text-white  font-poppins">
-        <div className="w-full bg-[#121212] rounded-2xl relative h-[90vh]">
+        <div className="w-full bg-[#121212] flex flex-col justify-between rounded-2xl relative h-[80vh]">
           <div className=" flex justify-around items-center  p-4 ">
             <h1 className="capitalize">
               <img
@@ -29,6 +29,28 @@ function App() {
               <a href="/">
                 <img src="threadsicon.svg" className="w-6" />
               </a>
+            </div>
+          </div>
+          <div className="flex p-5 py-10 gap-10 items-center">
+            <div className="flex-1 flex flex-col gap-5">
+              <p className="text-4xl">
+                own stocks in startups with just one click
+              </p>
+              <p className="">
+                building a portfolio of startups has never been easier wiith
+                pine
+              </p>
+              <div className="flex gap-3">
+                <p>easy payment</p>
+                <p>easy payment</p>
+                <p>easy payment</p>
+              </div>
+              <span className="border rounded-full p-3">
+                +7 million invested
+              </span>
+            </div>
+            <div className="flex-1">
+              <div className="border"></div>
             </div>
           </div>
         </div>
