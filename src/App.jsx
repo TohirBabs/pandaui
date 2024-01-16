@@ -2,7 +2,7 @@ import Activity from "./components/Activity"
 import Footer from "./components/Footer"
 
 const App = () => {
-  return (<Footer/>)
+  return (<Gallery/>)
 }
 
 export default App
