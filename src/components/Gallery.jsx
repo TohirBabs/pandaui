@@ -4,23 +4,24 @@ import { useState } from 'react'
 export const Gallery = () => {
   const [active, setActive] = useState(1)
   return (
-      <div className='flex gap-2  justify-center items-center p-5 m-3 bg-[#0e0e0e] rounded-3xl'>
-      <div onMouseEnter={() => setActive(1)}
+      <div className='flex gap-2 justify-between items-center p-3 overflow-hidden m-3 bg-[#0e0e0e] rounded-2xl'>
+      <img 
+      onMouseEnter={() => setActive(1)}
         onMouseLeave={() => setActive(1)}
-        
-        className={`w-${active === 1 ? "[40%]":"1/4"} hover:bg-[#fff] h-[400px] bg-[#d9d9d9] rounded-3xl transition-all duration-500`}></div>
-    <div onMouseEnter={() => setActive(2)}
+        src="spidey.jpg"
+        className={`w-${active === 1 ? "[50%]" : "[16%]"} hover:bg-[#fff] h-[450px] bg-[#d9d9d9] rounded-xl transition-all duration-500 object-cover`}/>
+    <img onMouseEnter={() => setActive(2)}
         onMouseLeave={() => setActive(1)}
-        
-        className={`w-${active === 2? "[40%]":"1/4"} hover:bg-[#fff] h-[400px] bg-[#d9d9d9] rounded-3xl transition-all duration-500`}></div>
-      <div onMouseEnter={() => setActive(3)}
+        src="batman.jpg"
+        className={`w-${active === 2 ? "[50%]" : "[16%]"} hover:bg-[#fff] h-[450px] bg-[#d9d9d9] rounded-xl transition-all duration-500 object-cover`}/>
+      <img onMouseEnter={() => setActive(3)}
         onMouseLeave={() => setActive(1)}
-        
-        className={` w-${active === 3 ? "[40%]":"1/4"} hover:bg-[#fff] h-[400px] bg-[#d9d9d9] rounded-3xl transition-all duration-500`}></div>
-      <div onMouseEnter={() => setActive(4)}
+        src="zombie.jpg"
+        className={` w-${active === 3 ? "[50%]" : "[16%]"} hover:bg-[#fff] h-[450px] bg-[#d9d9d9] rounded-xl transition-all duration-500 object-cover`}/>
+      <img onMouseEnter={() => setActive(4)}
         onMouseLeave={() => setActive(1)}
-        
-        className={`w-${active === 4 ? "[40%]":"1/4"} hover:bg-[#fff] h-[400px] bg-[#d9d9d9] rounded-3xl transition-all duration-500`}></div>
+        src="jinx.jpg"
+        className={`w-${active === 4 ? "[50%]" : "[16%]"} hover:bg-[#fff] h-[450px] bg-[#d9d9d9] rounded-xl transition-all duration-500 object-cover`}/>
       </div>  
   )
 }
