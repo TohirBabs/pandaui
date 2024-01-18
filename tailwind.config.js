@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins"],
+        mono: ["Space Mono"],
         dm: ["DM Sans"],
         open: ["Open Sans"],
       },
