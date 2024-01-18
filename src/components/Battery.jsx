@@ -6,6 +6,8 @@ import { BsLightningChargeFill } from "react-icons/bs";
 export const Battery = () => {
     const [batteryLevel, setBatteryLevel] = useState(100)
     const [chargeOrDischargeTime, setChargeOrDischargeTime] = useState(0)
+    const [charging, setCharging] = useState(false)
+
 
     const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
@@ -30,7 +32,8 @@ export const Battery = () => {
 
         // Get current battery level .
         setBatteryLevel(battery.level * 100);
-        setChargeOrDischargeTime(battery.charging ? battery.chargingTime : battery.dischargingTime )
+        setChargeOrDischargeTime(battery.charging ? battery.chargingTime : battery.dischargingTime)
+        setCharging(battery.charging)
         console.log(battery.dischargingTime.getHours());
     })
     .catch(function(e) {
@@ -53,7 +56,7 @@ else{
               <span className='text-5xl text-center font-bold'>{batteryLevel}%</span>
               <div className='h-[28%] w-[75%] rounded-2xl bg-[#d9d9d9]/50 overflow-hidden flex items-center justify-center relative'>
                                 <div style={{width:`${batteryLevel}%`}} className='h-full absolute left-0 transition-all bg-[#d9d9d9]'></div>
-                  <BsLightningChargeFill className='z-10 text-3xl text-[#0e0e0e]'/>
+                  { charging && <BsLightningChargeFill className='z-10 text-3xl text-[#0e0e0e]'/>}
 
               </div>
                             <span className='text-base text-center'>{formatTime(hours)}hrs {formatTime(minutes)}mins left</span>
