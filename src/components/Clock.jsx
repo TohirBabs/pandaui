@@ -19,7 +19,6 @@ const [time, setTime] = useState(new Date());
     return () => clearInterval(interval);
   }, []);
 
-
   // Format the time as HH:MM
     const formattedHour = `${hours < 10 ? '0' : ''}${hours}:`;
     const formattedMinute = `${minutes < 10 ? '0' : ''}${minutes}`;
