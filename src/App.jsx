@@ -1,6 +1,7 @@
 import { Battery } from "./components/Battery"
 import { Clock } from "./components/Clock"
 import { Dictionary } from "./components/Dictionary"
+import Image from "./components/Image"
 import { Time } from "./components/Time"
 import { Weather } from "./components/Weather"
 
@@ -16,8 +17,7 @@ const App = () => {
       <Weather/>
       <Dictionary />
       <Clock/>
-      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+<Image/>      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
