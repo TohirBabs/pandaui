@@ -9,6 +9,10 @@ export default {
         dm: ["DM Sans"],
         open: ["Open Sans"],
       },
+      animation: {
+        'spin-perminute': 'spin 60s linear infinite',
+      }
+    
     },
   },
   plugins: [],
