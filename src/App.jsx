@@ -1,23 +1,24 @@
 import { Battery } from "./components/Battery"
+import { Dictionary } from "./components/Dictionary"
 import { Time } from "./components/Time"
 
 
 const App = () => {
   return (<div className="w-screen min-h-screen bg-[#fff] flex-col flex items-center font-mono justify-center">
     <img src="/pandaemoji.svg" className="p-3 h-16 w-16 rounded-xl bg-[#0e0e0e]/70 m-4" />
-    <h2 className="text-2xl text-center">minimalistic web widgets </h2>
+    <h2 className="md:text-2xl text-lg text-center">minimalistic web widgets </h2>
 
-    <div className="grid grid-cols-12 gap-6 w-full p-6">
+    <div className="grid grid-cols-12 gap-[3vw] w-full p-[4vw]">
       <Time/>
       <Battery />
-      <div className="col-span-3 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="col-span-3 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="col-span-3 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="col-span-3 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="col-span-6 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="col-span-3 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="col-span-6 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="col-span-3 h-[20vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <div className="md:col-span-3 col-span-6 md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <Dictionary/>
+      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <div className="md:col-span-6 col-span-12 md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
 
 
     </div>
