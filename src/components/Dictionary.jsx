@@ -10,7 +10,7 @@ export const Dictionary = () => {
                     <HiSpeakerWave className='md:text-5xl text-3xl'/>
                 </div>
                 <p className='italic'>adjective</p>
-                <p className='md:text-2xl text-base'>completely good; without faults or weaknesses</p>
+                <p className='md:text-xl text-base'>completely good; without faults or weaknesses</p>
               </div></div>
   )
 }
