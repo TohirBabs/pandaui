@@ -1,6 +1,8 @@
 import { Battery } from "./components/Battery"
+import { Clock } from "./components/Clock"
 import { Dictionary } from "./components/Dictionary"
 import { Time } from "./components/Time"
+import { Weather } from "./components/Weather"
 
 
 const App = () => {
@@ -11,13 +13,13 @@ const App = () => {
     <div className="grid grid-cols-12 gap-[3vw] w-full p-[4vw]">
       <Time/>
       <Battery />
-      <div className="md:col-span-3 col-span-6 md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+      <Weather/>
+      <Dictionary />
+      <Clock/>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <Dictionary/>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="md:col-span-6 col-span-12 md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
 
 
