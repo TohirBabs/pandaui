@@ -28,11 +28,11 @@ export const Time = () => {
 
 
   return (
-      <div className="col-span-3 h-[20vw] relative overflow-hidden font-bold bg-[#0e0e0e] rounded-[2.4rem] text-white flex items-center justify-center text-6xl ">
+      <div className="md:col-span-3 col-span-6 md:h-[20vw] h-[40vw] relative overflow-hidden font-bold bg-[#0e0e0e] md:rounded-[2.4rem] rounded-3xl text-white flex items-center justify-center md:text-6xl text-5xl">
           <div className='flex items-center'>
           <span className=''>{formattedHour}</span>
               <div className='flex flex-col gap-2 justify-center  relative  transition-all'>
-                          <div className='absolute h-[20vw] w-full bg-gradient-to-b from-[#0e0e0e] via-transparent to-[#0e0e0e] z-20'></div>
+                          <div className='absolute md:h-[20vw] h-[40vw] w-full bg-gradient-to-b from-[#0e0e0e] via-transparent to-[#0e0e0e] z-20'></div>
                   <div className='flex relative bottom-[2rem] flex-col'>
 
                   {minutesArray.map((minute) => <span key={minute}>{minute}</span>)}</div>
