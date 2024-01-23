@@ -9,6 +9,7 @@ export const Time = () => {
 
   const hours = time.getHours();
   const minutes = time.getMinutes();
+ 
     const [minuteIndex, setMinuteIndex] = useState(minutes);
 
   useEffect(() => {
@@ -23,23 +24,26 @@ export const Time = () => {
 
 
   // Format the time as HH:MM
-    const formattedHour = `${hours < 10 ? '0' : ''}${hours}:`;
+    const formattedHour = `${hours < 10 ? '0' : ''}${hours}`;
     const formattedMinute = `${minutes < 10 ? '0' : ''}${minutes}:`;
 
 
   return (
-      <div className="md:col-span-3 col-span-6 md:h-[20vw] h-[40vw] relative overflow-hidden font-bold bg-[#0e0e0e] md:rounded-[2.4rem] rounded-3xl text-white flex items-center justify-center md:text-6xl text-5xl">
+      <div className="md:col-span-3 col-span-6 md:h-[230px] h-[40vw] relative overflow-hidden font-bold bg-[#0e0e0e] rounded-3xl text-white flex items-center justify-center md:text-7xl text-5xl">
           <div className='flex items-center'>
-          <span className=''>{formattedHour}</span>
+          <span className=''>{formattedHour}</span><span className='animate-pulse'>:</span>
               <div className='flex flex-col gap-2 justify-center  relative  transition-all'>
-                          <div className='absolute md:h-[20vw] h-[40vw] w-full bg-gradient-to-b from-[#0e0e0e] via-transparent to-[#0e0e0e] z-20'></div>
-                  <div className='flex relative bottom-[2rem] flex-col'>
+                  <div className='absolute md:h-[230px] h-[40vw] w-full bg-gradient-to-b from-[#0e0e0e] via-transparent to-[#0e0e0e] z-20'></div>
+          <div
+            className='flex relative flex-col w-[90px] h-[72px]'>
+            <div       
+              style={{ transform: `translateY(${minutes * -72}px)` }}
+              // style={{ top: `-72px` }}
 
-                  {minutesArray.map((minute) => <span key={minute}>{minute}</span>)}</div>
-
-
-          </div></div>
-
+              className="flex transition-all duration-500 transition flex-col absolute">
+                  {minutesArray.map((minute) => <span  key={minute}>{minute}</span>)}</div></div>
+        </div>
+      </div>
           </div>
 
   )
