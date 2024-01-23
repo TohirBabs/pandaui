@@ -2,30 +2,11 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-export const Time = ({mobileView}) => {
+export const Time = ({mobileView, time}) => {
  const minutesArray = Array.from({ length: 60 }, (_, index) => index < 10? "0"+index : index);
 
-    const [time, setTime] = useState(new Date());
-
-  const hours = time.getHours();
-  const minutes = time.getMinutes();
- 
-    const [minuteIndex, setMinuteIndex] = useState(minutes);
-
-  useEffect(() => {
-    // Update the time every second
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    // Clear the interval when the component is unmounted
-    return () => clearInterval(interval);
-  }, []);
-
-
-  // Format the time as HH:MM
-    const formattedHour = `${hours < 10 ? '0' : ''}${hours}`;
-    const formattedMinute = `${minutes < 10 ? '0' : ''}${minutes}:`;
+    const formattedHour = `${time.hours < 10 ? '0' : ''}${time.hours}`;
+    const formattedMinute = `${time.minutes < 10 ? '0' : ''}${time.minutes}:`;
 
 
   return (
@@ -37,7 +18,7 @@ export const Time = ({mobileView}) => {
           <div
             className='flex relative flex-col md:w-[90px] md:h-[72px] w-[59px] h-[48px]'>
             <div       
-              style={{ transform: `translateY(${mobileView ? minutes * -48 : minutes * -72}px)` }}
+              style={{ transform: `translateY(${mobileView ? time.minutes * -48 : time.minutes * -72}px)` }}
               className={`flex transition-all duration-500 transition flex-col absolute `}>
                   {minutesArray.map((minute) => <span  key={minute}>{minute}</span>)}</div></div>
         </div>
