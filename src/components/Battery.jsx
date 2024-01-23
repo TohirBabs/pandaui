@@ -29,12 +29,10 @@ export const Battery = () => {
       
     navigator.getBattery()
     .then(function(battery) {
-
         // Get current battery level .
         setBatteryLevel(battery.level * 100);
         setChargeOrDischargeTime(battery.charging ? battery.chargingTime : battery.dischargingTime)
         setCharging(battery.charging)
-        console.log(battery.dischargingTime.getHours());
     })
     .catch(function(e) {
         console.error(e);
@@ -51,15 +49,15 @@ else{
 }
 
   return (
-      <div className="md:col-span-3 col-span-6 md:h-[20vw] h-[40vw] relative overflow-hidden  bg-[#0e0e0e] md:rounded-[2.4rem] rounded-3xl text-white flex items-center justify-center ">
-          <div className='flex-col items-center w-full h-full justify-center flex gap-2'>
-              <span className='md:text-5xl text-3xl text-center font-bold'>{batteryLevel}%</span>
-              <div className='h-[28%] w-[75%] md:rounded-2xl rounded-lg bg-[#d9d9d9]/50 overflow-hidden flex items-center justify-center relative'>
-                                <div style={{width:`${batteryLevel}%`}} className='h-full absolute left-0 transition-all bg-[#d9d9d9]'></div>
+      <div className="md:col-span-3 col-span-6 md:h-[230px] h-[40vw] relative overflow-hidden  bg-[#0e0e0e] rounded-3xl text-white flex items-center justify-center ">
+          <div className='flex-col items-center w-full h-full justify-center flex gap-3'>
+              <span className='md:text-6xl text-3xl text-center font-bold'>{batteryLevel}%</span>
+              <div className='h-[28%] w-[70%] md:rounded-xl rounded-lg bg-[#d9d9d9]/50 overflow-hidden flex items-center justify-center relative'>
+                  <div style={{width:`${batteryLevel}%`}} className='h-full absolute left-0 transition-all bg-[#d9d9d9]'></div>
                   { charging && <BsLightningChargeFill className='z-10 md:text-3xl text-xl text-[#0e0e0e]'/>}
 
               </div>
-                            <span className='text-base text-sm text-center'>{formatTime(hours)}hrs {formatTime(minutes)}mins left</span>
+              <span className='text-base text-sm text-center'>{formatTime(hours)}hrs {formatTime(minutes)}mins left</span>
 
 
          </div>
