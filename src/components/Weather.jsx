@@ -69,8 +69,11 @@ export const Weather = () => {
             {weatherForecastData &&
             <div className='flex-col md:p-8 p-4 justify-between w-full h-full flex md:gap-4 gap-2'>
                     <div className='flex justify-between items-center'>
-                        <div className='flex gap-2 items-center'>
-                            <img src="/weather_icons/sun.svg" className='h-12' />                            
+              <div className='flex gap-2 items-center'>
+                {Math.round(weatherForecastData.list[0].main.temp - 273.15) < 26 ?
+                                            <img src="/weather_icons/rain.svg" className='h-12' />  :Math.round(weatherForecastData.list[0].main.temp - 273.15) < 31 ?
+                                            <img src="/weather_icons/cloud.svg" className='h-12' />  :            <img src="/weather_icons/sun.svg" className='h-12' />              
+}
                         <p className='text-3xl md:text-6xl font-bold'>                           
                             {Math.round(weatherForecastData.list[0].main.temp - 273.15)}&deg;C</p>
                         </div>
@@ -85,7 +88,10 @@ export const Weather = () => {
                 
               <div key={index} className='flex flex-col gap-1 items-center text-center'>
                   <p className='uppercase'>{ index === 0 ? "today": weekdays[(dayIndex + index)%7]}</p>
-                            <img src="/weather_icons/sun.svg" className='h-6' />
+                                           {Math.round(weatherForecastData.list[day].main.temp - 273.15) < 26 ?
+                                            <img src="/weather_icons/rain.svg" className='h-6' />  :Math.round(weatherForecastData.list[day].main.temp - 273.15) < 31 ?
+                                            <img src="/weather_icons/cloud.svg" className='h-6' />  :            <img src="/weather_icons/sun.svg" className='h-6' />              
+}
                             <p>{Math.round(weatherForecastData.list[day].main.temp - 273.15)}&deg;</p>
 
                         </div>)
