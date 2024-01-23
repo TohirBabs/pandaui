@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import { Battery } from "./components/Battery"
 import { Clock } from "./components/Clock"
 import { Dictionary } from "./components/Dictionary"
@@ -7,12 +8,15 @@ import { Weather } from "./components/Weather"
 
 
 const App = () => {
+
+  const windowSize = useRef([window.innerWidth, window.innerHeight]);
+
   return (<div className="w-screen min-h-screen bg-[#fff] flex-col flex items-center font-mono justify-center">
     <img src="/pandaemoji.svg" className="p-3 h-16 w-16 rounded-xl bg-[#0e0e0e]/70 m-4" />
     <h2 className="md:text-2xl text-lg text-center">minimalistic web widgets </h2>
 
-    <div className="grid grid-cols-12 gap-[2rem] max-w-6xl p-[1rem]">
-      <Time/>
+    <div className="grid grid-cols-12 md:gap-[2rem] gap-[1rem] max-w-6xl p-[0.5rem]">
+      <Time mobileView={ windowSize.current[0] < 768}/>
       <Battery />
       <Weather/>
       <Dictionary />
