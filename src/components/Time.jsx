@@ -29,7 +29,7 @@ export const Time = ({mobileView}) => {
 
 
   return (
-      <div className="md:col-span-3 col-span-6 md:h-[230px] h-[40vw] relative overflow-hidden font-bold bg-[#0e0e0e] rounded-3xl text-white flex items-center justify-center md:text-7xl text-5xl">
+      <div className="md:col-span-3 col-span-6 md:h-[230px] h-[40vw] relative overflow-hidden font-bold bg-[#0e0e0e] md:rounded-3xl rounded-2xl text-white flex items-center justify-center md:text-7xl text-5xl">
           <div className='flex items-center'>
           <span className=''>{formattedHour}</span><span className='animate-pulse'>:</span>
               <div className='flex flex-col gap-2 justify-center  relative  transition-all'>
