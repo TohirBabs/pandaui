@@ -11,7 +11,7 @@ const App = () => {
     <img src="/pandaemoji.svg" className="p-3 h-16 w-16 rounded-xl bg-[#0e0e0e]/70 m-4" />
     <h2 className="md:text-2xl text-lg text-center">minimalistic web widgets </h2>
 
-    <div className="grid grid-cols-12 gap-[3vw] w-full p-[4vw]">
+    <div className="grid grid-cols-12 gap-[2rem] max-w-6xl p-[1rem]">
       <Time/>
       <Battery />
       <Weather/>
