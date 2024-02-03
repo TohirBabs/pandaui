@@ -7,13 +7,12 @@ import { Time } from "./components/Time"
 import { Weather } from "./components/Weather"
 import { useEffect } from "react"
 import { useState } from "react"
+import { Mic } from "./components/Mic"
 
 
 const App = () => {
-
   const windowSize = useRef([window.innerWidth, window.innerHeight]);
-
-    const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(new Date());
 
   const hours = time.getHours();
   const minutes = time.getMinutes();
@@ -39,10 +38,11 @@ const App = () => {
       <Weather/>
       <Dictionary />
       <Clock/>
-<Image/>      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+<Mic/><div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
       <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+
 
 
     </div>
