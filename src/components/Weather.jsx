@@ -65,40 +65,34 @@ export const Weather = () => {
   console.log(weatherForecastData);
   const daysIndex = [0,8,16,24,32]
     return (
-        <div className="md:col-span-6 col-span-12 md:h-[230px] h-[40vw] relative overflow-hidden  bg-[#0e0e0e]  rounded-3xl text-white flex items-center justify-center ">
-            {weatherForecastData &&
-            <div className='flex-col md:p-8 p-4 justify-between w-full h-full flex md:gap-4 gap-2'>
+      <div className=" h-[10rem] md:col-span-4 col-span-12 w-full relative overflow-hidden font-bold bg-gradient-to-t from-green-700 to-green-400 rounded-[2rem] text-white flex items-center justify-center  text-4xl">
+      <div className='flex-col  p-4 justify-between w-full h-full flex  gap-2'>
                     <div className='flex justify-between items-center'>
               <div className='flex gap-2 items-center'>
-                {Math.round(weatherForecastData.list[0].main.temp - 273.15) < 26 ?
-                                            <img src="/weather_icons/rain.svg" className='h-12' />  :Math.round(weatherForecastData.list[0].main.temp - 273.15) < 31 ?
-                                            <img src="/weather_icons/cloud.svg" className='h-12' />  :            <img src="/weather_icons/sun.svg" className='h-12' />              
-}
-                        <p className='text-3xl md:text-6xl font-bold'>                           
-                            {Math.round(weatherForecastData.list[0].main.temp - 273.15)}&deg;C</p>
+                        <img src="/weather_icons/cloud.svg" className='h-8' />                
+                        <p className='text-xl  font-semibold'>30&deg;C</p>
                         </div>
-                    <div className='text-right text-xl'>
-                        <p className='font-bold text-3xl'>{ weatherForecastData.city.name}</p>
-                        <p>{weatherForecastData.list[0].weather[0].description}</p>
+                    <div className='text-right text-xs'>
+                        <p className='font-bold text-xl'>Lagos</p>
+                        <p>few clouds</p>
                     </div>
                     </div>
                     
-            <div className='flex justify-between '>
+            <div className='flex justify-between text-xs'>
               {daysIndex.map((day, index) => (
                 
-              <div key={index} className='flex flex-col gap-1 items-center text-center'>
+              <div key={index} className='flex text-xs flex-col gap-1 items-center text-center'>
                   <p className='uppercase'>{ index === 0 ? "today": weekdays[(dayIndex + index)%7]}</p>
-                                           {Math.round(weatherForecastData.list[day].main.temp - 273.15) < 26 ?
-                                            <img src="/weather_icons/rain.svg" className='h-6' />  :Math.round(weatherForecastData.list[day].main.temp - 273.15) < 31 ?
-                                            <img src="/weather_icons/cloud.svg" className='h-6' />  :            <img src="/weather_icons/sun.svg" className='h-6' />              
-}
-                            <p>{Math.round(weatherForecastData.list[day].main.temp - 273.15)}&deg;</p>
+                     {Math.random % 2 == 0 ?
+                            <img src="/weather_icons/rain.svg" className='h-4' />  :
+                            <img src="/weather_icons/cloud.svg" className='h-4' /> }
+                            <p>30&deg;</p>
 
                         </div>)
 )}
                         
                     </div>
-            </div>}
+            </div>
             
         </div>
   )

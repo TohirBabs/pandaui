@@ -24,11 +24,11 @@ const [time, setTime] = useState(new Date());
     const formattedMinute = `${minutes < 10 ? '0' : ''}${minutes}`;
 
   return (
-      <div className="md:col-span-3 col-span-6 md:h-[220px] h-[40vw] relative overflow-hidden font-bold bg-[#0e0e0e] rounded-3xl text-white flex items-center justify-center ">
-          <div className='w-[14vw] relative flex items-center justify-center h-[14vw] rounded-full bg-[#d9d9d9] '>
-              <div className='absolute left-[50%] top-[50%] origin-left animate-spin-perminute w-[50%] h-[2px] bg-[#0e0e0e]'></div>
-              <p className='relative top-6 text-2xl text-[#0e0e0e]'>{formattedHour}{formattedMinute}</p>
-              <div className='absolute w-3 h-3 rounded-full bg-[#0e0e0e]'></div>
+    <div className=" h-[10rem] md:col-span-2 col-span-6  w-full relative overflow-hidden font-bold bg-gradient-to-t from-rose-700 to-rose-400 rounded-[2rem] text-white flex items-center justify-center  text-4xl">
+    <div className='w-[9rem] relative flex items-center justify-center h-[9rem] rounded-full bg-[#fff] '>
+              <div className='absolute left-[50%] top-[50%] origin-left animate-spin-perminute w-[50%] h-[2px] bg-rose-700'></div>
+              <p className='relative top-6 text-2xl text-rose-500'>{formattedHour}{formattedMinute}</p>
+              <div className='absolute w-3 h-3 rounded-full bg-rose-500'></div>
           </div>
         </div>
   )

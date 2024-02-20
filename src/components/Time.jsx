@@ -1,25 +1,40 @@
 import React from 'react'
-import { useState } from 'react';
 import { useEffect } from 'react';
+import { useState } from 'react';
+import { useRef } from 'react';
 
-export const Time = ({mobileView, time}) => {
+export const DigitalClock = ({}) => {
+    const windowSize = useRef([window.innerWidth, window.innerHeight]);
+    const [minutes, setMinutes] = useState(12);
+  
+   
+
+    useEffect(() => {
+      // Update the time every second
+      const interval = setInterval(() => {
+        setMinutes((minutes + 1)%60);
+      }, 3000);
+  
+      // Clear the interval when the component is unmounted
+      return () => clearInterval(interval);
+    }, [minutes]);
  const minutesArray = Array.from({ length: 60 }, (_, index) => index < 10? "0"+index : index);
 
-    const formattedHour = `${time.hours < 10 ? '0' : ''}${time.hours}`;
-    const formattedMinute = `${time.minutes < 10 ? '0' : ''}${time.minutes}:`;
-
   return (
-      <div className="md:col-span-3 col-span-6 md:h-[230px] h-[40vw] relative overflow-hidden font-bold bg-[#0e0e0e] md:rounded-3xl rounded-2xl text-white flex items-center justify-center md:text-7xl text-5xl">
+      <div className=" h-[10rem] border-4 border-indigo-300/70  md:col-span-2 col-span-6  w-full relative overflow-hidden font-bold bg-gradient-to-t from-indigo-700 to-indigo-400 rounded-[2rem] text-white flex items-center justify-center  text-4xl">
+                    <div className='absolute  h-full w-full bg-gradient-to-t from-indigo-700 via-transparent to-indigo-400 z-20'></div>
+
           <div className='flex items-center'>
-          <span className=''>{formattedHour}</span><span className='animate-pulse'>:</span>
-              <div className='flex flex-col gap-2 justify-center  relative  transition-all'>
-                  <div className='absolute md:h-[230px] h-[40vw] w-full bg-gradient-to-b from-[#0e0e0e] via-transparent to-[#0e0e0e] z-20'></div>
+          <span className=''>09</span><span className='animate-pulse'>:</span>
+            <div className='flex flex-col gap-2 justify-center  relative  transition-all'>
           <div
-            className='flex relative flex-col md:w-[90px] md:h-[72px] w-[59px] h-[48px]'>
-            <div    
-              style={{ transform: `translateY(${mobileView ? time.minutes * -48 : time.minutes * -72}px)` }}
-              className={`flex transition-all duration-1000 transition flex-col absolute `}>
-                  {minutesArray.map((minute) => <span  key={minute}>{minute}</span>)}</div></div>
+            className='flex relative flex-col  w-[48px] h-[40px]'>
+            <div 
+              style={{ transform: `translateY(${minutes * -40 }px)` }}
+              className={`flex transition-all duration-1000  flex-col absolute `}>
+                  {minutesArray.map((minute) => <span  key={minute}>{minute}</span>)}
+                </div>
+            </div>
         </div>
       </div>
           </div>

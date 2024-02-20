@@ -4,52 +4,37 @@ import { useState } from 'react';
 import { BsLightningChargeFill } from "react-icons/bs";
 
 export const Battery = () => {
-  const [batteryLevel, setBatteryLevel] = useState(0)
+  const [batteryLevel, setBatteryLevel] = useState(37)
   const [chargeOrDischargeTime, setChargeOrDischargeTime] = useState(0)
   const [charging, setCharging] = useState(false)
   const formatTime = (time) => (time < 10 ? `0${time}` : time); 
   const getHoursMinutesSeconds = (totalSeconds) => {
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60)
-    const seconds = totalSeconds % 60;
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60)
+  const seconds = totalSeconds % 60;
     return { hours, minutes, seconds };
   };
-  const { hours, minutes, seconds: remainingSeconds } = getHoursMinutesSeconds(chargeOrDischargeTime);
-    if(navigator.getBattery){
-      useEffect(() => {
-        // Update the time every second 
-      const interval = setInterval(() => {   
-    navigator.getBattery()
-      .then(function (battery)
-      {// Get current battery level
-        setBatteryLevel(battery.level * 100);
-        setChargeOrDischargeTime(battery.charging ? battery.chargingTime : battery.dischargingTime)
-        setCharging(battery.charging)
-      })    
-    .catch(function(e) {
-      console.error(e);
-    });
-    }, 1000);
+
+  useEffect(() => {
+    // Update the time every second
+    const interval = setInterval(() => {
+      setBatteryLevel((batteryLevel + 1)%100);
+    }, 5000);
+
     // Clear the interval when the component is unmounted
-        return () => clearInterval(interval);
-      }, []);     
-    } 
-  
-    else {
-      // if battery API is not working
-      console.log("no battery api");
-  } 
+    return () => clearInterval(interval);
+  }, [batteryLevel]);
   
   return (
-      <div className="md:col-span-3 col-span-6 md:h-[230px] h-[40vw] relative overflow-hidden  bg-[#0e0e0e] md:rounded-3xl rounded-2xl text-white flex items-center justify-center ">
-          <div className='flex-col items-center w-full h-full justify-center flex md:gap-3 gap-2'>
-            <span className='md:text-6xl text-4xl text-center font-bold'>{Math.round(batteryLevel)}%</span>
-            <div className='h-[30%] w-[70%] md:rounded-xl rounded-lg bg-[#d9d9d9]/50  flex items-center justify-center relative'>
-          <div style={{ width: `${batteryLevel}%` }} className='h-full absolute rounded-lg md:rounded-xl left-0 transition-all duration-1000 bg-[#d9d9d9]'></div>
-          <div className='absolute md:h-8 h-4 rounded-r-sm md:w-2 w-1 right bg-[#d9d9d9]/50 md:-right-2 -right-1'></div>
-            { charging && <BsLightningChargeFill className='z-10 md:text-4xl text-2xl text-[#0e0e0e]'/>}
+    <div className=" h-[10rem] md:col-span-2 col-span-6  w-full relative overflow-hidden font-bold bg-gradient-to-t from-cyan-700 to-cyan-400 rounded-[2rem] text-white flex items-center justify-center ">
+    <div className='flex-col items-center w-full h-full justify-center flex  gap-2'>
+            <span className='text-3xl text-center font-semibold'>{batteryLevel}%</span>
+            <div className='h-[25%] w-[60%] rounded-lg bg-[#d9d9d9]/50  flex items-center justify-center overflow-hidden relative'>
+          <div style={{ width: `${batteryLevel}%` }} className='h-full absolute rounded-r-md left-0 transition-all duration-1000 bg-[#d9d9d9]'></div>
+          <div className='absolute h-3 rounded-r-sm w-1 bg-[#d9d9d9]/50 -right-1'></div>
+            <BsLightningChargeFill className='z-10 text-xl text-[#0e0e0e]'/>
             </div>
-            <span className='md:text-base text-xs text-center'>{formatTime(hours)}hrs {formatTime(minutes)}mins left</span>
+            {/* <span className=' text-xs text-center'>{formatTime(hours)}hrs {formatTime(minutes)}mins left</span> */}
          </div>
 </div>
 

@@ -3,7 +3,7 @@ import { Battery } from "./components/Battery"
 import { Clock } from "./components/Clock"
 import { Dictionary } from "./components/Dictionary"
 import Image from "./components/Image"
-import { Time } from "./components/Time"
+import { DigitalClock} from "./components/Time"
 import { Weather } from "./components/Weather"
 import { useEffect } from "react"
 import { useState } from "react"
@@ -32,17 +32,29 @@ const App = () => {
     <img src="/pandaemoji.svg" className="p-3 h-16 w-16 rounded-xl bg-[#0e0e0e]/70 m-4" />
     <h2 className="md:text-2xl text-lg text-center">minimalistic web widgets </h2>
 
-    <div className="grid grid-cols-12 md:gap-[2rem] gap-[1rem] max-w-6xl p-[0.5rem]">
-      <Time mobileView={windowSize.current[0] < 768} time={ {hours:hours,minutes:minutes}} />
-      <Battery />
-      <Weather/>
-      <Dictionary />
-      <Clock/>
-<Mic/><div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
-      <div className="md:col-span-3 col-span-6  md:h-[20vw] h-[40vw] bg-[#0e0e0e] rounded-3xl"></div>
+    <div className="grid grid-cols-12 w-full gap-5 lg:w-[70rem] p-5 rounded-[2.5rem] bg-gray-900">
+<DigitalClock/>
 
+<Battery/>
+
+<Clock/>
+
+<Weather/>
+
+<Battery/>
+
+<Clock/>
+
+<DigitalClock/>
+<Weather/>
+<Battery/>
+<Battery/>
+
+<Weather/>
+<DigitalClock/>
+<Clock/>
+<DigitalClock/>
+<Clock/>
 
 
     </div>
